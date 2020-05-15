@@ -1,0 +1,66 @@
+.NavBar {
+    position: fixed;
+    top: 0;
+    height: 5vh;
+    width: 100vw;
+    border-bottom: .5px solid #ccc;
+    display: flex;
+    justify-content: space-between;
+}
+
+.NavBarLeft,
+.NavBarRight {
+    width: 20%;
+    height: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.NavBarLeft {
+    width: 25%;
+}
+
+.Icon {
+    cursor: pointer;
+}
+
+.AppName {
+    font-family: 'Baumans', cursive;
+    font-size: 1.2rem;
+}
+
+.TagLine {
+    font-family: 'Mukta', sans-serif;
+    font-weight: 200;
+}
+
+@media only screen and (max-width: 1100px) {
+    .NavBarLeft {
+        width: 35%;
+    }
+
+    .NavBarRight {
+        width: 30%
+    }
+}
+
+@media only screen and (max-width: 900px) {
+    .NavBarRight {
+        width: 50%
+    }
+
+    .TagLine {
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .AppName {
+        font-size: 1rem;
+    }
+
+    .NavBarRight {
+        width: 55%;
+    }
+}

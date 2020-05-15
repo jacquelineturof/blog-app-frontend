@@ -1,0 +1,1 @@
+export { setQuery,clearQuery} from './query'

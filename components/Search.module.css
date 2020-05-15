@@ -1,0 +1,13 @@
+.Icon {
+    cursor: pointer;
+}
+
+.SearchInput {
+    font-family: 'Mukta', sans-serif;
+    width: 60%;
+}
+
+.SearchInput:focus,
+.SearchInput:active {
+    outline: none;
+}

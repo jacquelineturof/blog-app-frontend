@@ -1,0 +1,17 @@
+.PostList {
+    width: 60%;
+}
+
+.Post {
+    cursor: pointer;
+    border-bottom: .1px solid #eee;
+    font-family: 'Mukta', sans-serif;
+}
+
+.Category {
+    font-weight: 500;
+}
+
+.Date {
+    font-weight: 200;
+}
