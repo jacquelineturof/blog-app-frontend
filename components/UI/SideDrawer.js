@@ -1,16 +1,24 @@
 import React from 'react'
 
 import Link from 'next/link'
+import Router from 'next/router'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 import classes from './SideDrawer.module.css'
 
-const AuthLink = ({ isAuth }) => {
+const AuthLink = ({ isAuth, setIsMenuOpen }) => {
     const icon = isAuth ? 'sign-out' : 'sign-in'
 
+    const routeHandler = () => {
+        Router.push('/auth')
+        setIsMenuOpen(false)
+    }
+
     return (
-        <div className = { classes.AuthLinkContainer }>
+        <div 
+            className = { classes.AuthLinkContainer }
+            onClick = { routeHandler  }>
             <FontAwesomeIcon
                 icon = { [ 'fal', icon ] } 
                 className = { classes.Icon } />
@@ -26,7 +34,7 @@ const LinkList = ({ isAuth, isAdmin }) => {
         links = (
             <>
                 <li>
-                    <Link href="/">
+                    <Link href="/createBlog">
                         <a>Create Post</a>
                     </Link>
                 </li>
@@ -61,20 +69,20 @@ const LinkList = ({ isAuth, isAdmin }) => {
         )
     }
 
-    links = (
+    const linkList = (
         <ul className = { classes.LinkContainer }>
-
+            { links }
         </ul>
     )
 
-    return links
+    return linkList
 }
 
-const SideDrawer = () => {
+const SideDrawer = ({ setIsMenuOpen, isAuth, isAdmin }) => {
     const content = (
         <div className = { [ classes.Content, classes.Center ].join(' ') }>
-            <AuthLink isAuth = { false } />
-            <LinkList isAuth = { false } isAdmin = { false } />
+            <AuthLink isAuth = { isAuth } setIsMenuOpen = { setIsMenuOpen } />
+            <LinkList isAuth = { isAuth } isAdmin = { isAdmin } />
         </div>
     )
 

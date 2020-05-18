@@ -1,6 +1,29 @@
 .ShareMenu {
     position: absolute;
-    height: 100px;
-    width: 100px;
-    background-color: green;
+    height: 150px;
+    width: 300px;
+    right: 0;
+    top: 5vh;
+    z-index: 3;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.Icon {
+    font-size: 1.75rem;
+    cursor: pointer;
+}
+
+.FacebookBlue {
+    color: #3b5998;
+}
+
+.TwitterBlue {
+    color: #1DA1F2;
+}
+
+.Heading {
+    font-family: 'Mukta', sans-serif;
 }

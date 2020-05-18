@@ -1,0 +1,26 @@
+.InputElement {
+    outline: none;
+    border: none;
+    width: 80%;
+    font-size: 1rem;
+    font-family: 'Mukta', sans-serif;
+    font-weight: 200;
+}
+
+.InputContainer {
+    border: .5px solid #ccc;
+    width: 70%;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin-bottom: 2rem;
+}
+
+.Select {
+    background-color: transparent;
+}
+
+.TextArea {
+    height: 50%;
+}

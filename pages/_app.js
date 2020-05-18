@@ -1,15 +1,7 @@
 import React from 'react'
-
-import {createStore, applyMiddleware} from "redux";
-import { composeWithDevTools } from 'redux-devtools-extension'
-import {Provider } from "react-redux";
-import App from "next/app";
-import withRedux from "next-redux-wrapper";
-import thunkMiddleware from 'redux-thunk'
+import App from "next/app"
 
 import { wrapper } from '../store/store'
-
-import reducer from '../store/reducers/mainReducer'
 
 import '../App.css'
 import '../icon.config'
@@ -42,12 +34,11 @@ import Layout from '../components/Layout'
   
     render() {
         const {Component, pageProps} = this.props;
-        console.log('props: ', this.props)
-        return (
 
-                <Layout>
-                    <Component {...pageProps} />
-                </Layout>
+        return (
+            <Layout>
+                <Component {...pageProps} />
+            </Layout>
         );
     }
   }

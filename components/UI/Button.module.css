@@ -1,0 +1,21 @@
+.Btn {
+    height: 7%;
+    width: 30%;
+    border: none;
+    outline: none;
+    font-family: 'Mukta', sans-serif;
+    cursor: pointer;
+}
+
+.Primary {
+    color: white;
+    border-radius: .5rem;
+    background-color: #82204A;
+    font-size: 1.2rem;
+}
+
+.Simple {
+    margin: 0;
+    font-size: 1rem;
+    font-weight: 200;
+}

@@ -1,0 +1,22 @@
+.BackgroundContainer {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #ba2e6a;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' viewBox='0 0 200 100'%3E%3Cdefs%3E%3Cg id='a' %3E%3Cpath fill='%23b42d67' d='M0 200V0h200'/%3E%3Cpath fill='%23af2b63' d='M0 200V0h171'/%3E%3Cpath fill='%23a92a60' d='M0 200V0h152'/%3E%3Cpath fill='%23a3285d' d='M0 200V0h133'/%3E%3Cpath fill='%239e275a' d='M0 200V0h114'/%3E%3Cpath fill='%23982657' d='M0 200V0h95'/%3E%3Cpath fill='%23922453' d='M0 200V0h76'/%3E%3Cpath fill='%238d2350' d='M0 200V0h57'/%3E%3Cpath fill='%2387214d' d='M0 200V0h38'/%3E%3Cpath fill='%2382204a' d='M0 200V0h19'/%3E%3C/g%3E%3C/defs%3E%3Cg transform='translate(0)'%3E%3Cuse xlink:href='%23a'/%3E%3Cuse xlink:href='%23a' x='-200' y='-200' transform='rotate(90) scale(-1 1)'/%3E%3Cpath fill='%23ba2e6a' d='M0 200 190 0 200 0 200 10 '/%3E%3C/g%3E%3C/svg%3E");
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+.Form {
+    width: 80%;
+    height: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    box-shadow: 0 5px 15px -5px #00000070;
+    background-color: white;
+}
