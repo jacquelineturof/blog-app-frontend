@@ -5,6 +5,7 @@ import NavBar from './UI/NavBar'
 import SideDrawer from './UI/SideDrawer'
 import Backdrop from './UI/Backdrop'
 import ShareMenu from './UI/ShareMenu'
+import Notification from './UI/Notification'
 
 import * as actions from '../store/actions'
 
@@ -19,6 +20,9 @@ const Layout = ({ children }) => {
     const dispatch = useDispatch()
     const token = useSelector(state => state.auth.token)
     const isAdmin = useSelector(state => state.auth.isAdmin)
+    const error = useSelector(state => state.notification.error)
+    const message = useSelector(state => state.notification.message)
+
     const [ isMenuOpen, setIsMenuOpen ] = useState(false)
     const [ isShareMenuOpen, setIsShareMenuOpen ] = useState(false)
 
@@ -38,14 +42,18 @@ const Layout = ({ children }) => {
                 setIsMenuOpen = { setIsMenuOpen }
                 setIsShareMenuOpen = { setIsShareMenuOpen } 
                 isShareMenuOpen = { isShareMenuOpen } />
+            {
+                error || message
+                    ? (
+                        <Notification 
+                            type = { error ? 'error' : 'message' } 
+                            message = { error ? error : message }/>
+                    )
+                    : null
+            }
             { 
                 isMenuOpen 
-                    ? (
-                        <SideDrawer 
-                            setIsMenuOpen = { setIsMenuOpen }
-                            isAuth = { token !== null }
-                            isAdmin = { isAdmin } /> 
-                    )
+                    ?   <SideDrawer setIsMenuOpen = { setIsMenuOpen }/> 
                     : null 
             }
             { isMenuOpen ? <Backdrop /> : null }

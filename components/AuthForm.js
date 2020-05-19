@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
+
+import Router from 'next/router'
 
 import Input from './UI/Input'
 import Button from './UI/Button'
@@ -10,6 +12,9 @@ import classes from './AuthForm.module.css'
 
 const AuthForm = () => {
     const dispatch = useDispatch()
+    const token = useSelector(state => state.auth.token)
+    const isAdmin = useSelector(state => state.auth.isAdmin)
+    
     // form state
     const [ isLogin, setIsLogin ] = useState(true)
 
@@ -84,10 +89,19 @@ const AuthForm = () => {
         changed: e => setConfirmPassword(e.target.value)
     }
 
-    const onSubmitHandler = e => {
+    const onSubmitHandler = async e => {
         e.preventDefault()
-        dispatch(actions.auth(username, password, !isLogin, false))
+        if (isLogin) {
+            await dispatch(actions.auth(username, password, false, false))
+        } else {
+            await dispatch(actions.auth(username, password, true, false, email))
+        }
+        
         resetHandler()
+
+        if (token) {
+            isAdmin ? Router.push('/adminHome') : Router.push('/userHome')
+        }
     }
 
     const resetHandler = () => {

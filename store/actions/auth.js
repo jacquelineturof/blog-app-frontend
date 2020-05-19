@@ -2,6 +2,8 @@ import * as actionTypes from './actionTypes'
 
 import axios from '../../axios-backend'
 
+import * as actions from './index.js'
+
 export const loginUser = user => {
     return {
         type: actionTypes.LOGIN_AUTH_USER,
@@ -29,12 +31,12 @@ export const authStart = () => {
     from try / catch block
     isAdmin(boolean) send to backend to let us know which privelages a user has
 */
-export const auth = (username, password, isSignup, isAdmin) => {
+export const auth = (username, password, isSignup, isAdmin, email) => {
     return async dispatch => {
         dispatch(authStart())
         
         const authData = isSignup 
-            ? { username, password, isAdmin }
+            ? { username, email, password, isAdmin }
             : { username, password }
         
         let url = isSignup ? 'user' : 'user/login'
@@ -49,14 +51,14 @@ export const auth = (username, password, isSignup, isAdmin) => {
                 localStorage.setItem('blog-is-admin', response.data.isAdmin)
                 dispatch(loginUser(response.data))
             } else {
-                dispatch(setMessage('registration success'))
+                dispatch(actions.setMessage('registration success'))
             }
         } catch (e) {
             let errorMessage = 'Login failed!'
 
             if (isSignup) errorMessage = 'Sign up failed!'
 
-            console.log(errorMessage)
+            dispatch(actions.setError(errorMessage))
         }
     }
 }
@@ -96,7 +98,7 @@ export const startLogout = token => {
             localStorage.removeItem('blog-is-admin')
             dispatch(logoutUser())
         } catch (e) {
-            console.log(e.message)
+            dispatch(actions.setError(errorMessage))
         }
     }
 }

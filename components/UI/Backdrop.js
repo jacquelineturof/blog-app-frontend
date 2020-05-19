@@ -2,10 +2,18 @@ import React from 'react'
 
 import classes from './Backdrop.module.css'
 
-const Backdrop = () => (
-    <div className = { classes.Backdrop }>
+const Backdrop = ({ translate }) => {
+    const cssClasses = [ classes.Backdrop ]
 
-    </div>
-)
+    if (translate) {
+        cssClasses.push(classes.Translate)
+    }
+    
+    return (
+        <div className = { cssClasses.join(' ') }>
+
+        </div>
+    )
+}
 
 export default Backdrop

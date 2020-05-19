@@ -10,7 +10,8 @@ import {
     faSignature,
     faAt,
     faLockAlt,
-    faCheck 
+    faCheck,
+    faExclamationCircle 
 } from '@fortawesome/pro-light-svg-icons'
 import { faFacebook, faTwitter } from '@fortawesome/free-brands-svg-icons'
 
@@ -26,5 +27,6 @@ library.add(
     faSignature,
     faAt,
     faLockAlt,
-    faCheck
+    faCheck,
+    faExclamationCircle
 )

@@ -13,3 +13,9 @@ export const setMessage = msg => {
         payload: msg
     }
 }
+
+export const clearNotification = () => {
+    return {
+        type: actionTypes.CLEAR_NOTIFICATION
+    }
+}

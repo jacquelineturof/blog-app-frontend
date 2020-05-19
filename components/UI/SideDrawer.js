@@ -1,28 +1,37 @@
 import React from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 
 import Link from 'next/link'
 import Router from 'next/router'
+
+import * as actions from '../../store/actions'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 import classes from './SideDrawer.module.css'
 
-const AuthLink = ({ isAuth, setIsMenuOpen }) => {
-    const icon = isAuth ? 'sign-out' : 'sign-in'
+const AuthLink = ({ token, setIsMenuOpen }) => {
+    const dispatch = useDispatch()
 
-    const routeHandler = () => {
+    const icon = token !== null ? 'sign-out' : 'sign-in'
+
+    const authHandler = () => {
         Router.push('/auth')
         setIsMenuOpen(false)
+    }
+
+    const logoutHandler = () => {
+        dispatch(actions.startLogout(token))
     }
 
     return (
         <div 
             className = { classes.AuthLinkContainer }
-            onClick = { routeHandler  }>
+            onClick = { token !== null ? logoutHandler: authHandler }>
             <FontAwesomeIcon
                 icon = { [ 'fal', icon ] } 
                 className = { classes.Icon } />
-            <p className = { classes.Label }>{ isAuth ? 'Logout' : 'Login '}</p>
+            <p className = { classes.Label }>{ token !== null ? 'Logout' : 'Login '}</p>
         </div>
     )
 }
@@ -78,11 +87,14 @@ const LinkList = ({ isAuth, isAdmin }) => {
     return linkList
 }
 
-const SideDrawer = ({ setIsMenuOpen, isAuth, isAdmin }) => {
+const SideDrawer = ({ setIsMenuOpen }) => {
+    const token = useSelector(state => state.auth.token)
+    const isAdmin = useSelector(state => state.auth.isAdmin)
+    
     const content = (
         <div className = { [ classes.Content, classes.Center ].join(' ') }>
-            <AuthLink isAuth = { isAuth } setIsMenuOpen = { setIsMenuOpen } />
-            <LinkList isAuth = { isAuth } isAdmin = { isAdmin } />
+            <AuthLink token = { token } setIsMenuOpen = { setIsMenuOpen } />
+            <LinkList isAuth = { token !== null } isAdmin = { isAdmin } />
         </div>
     )
 

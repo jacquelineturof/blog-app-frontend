@@ -7,3 +7,4 @@ export const LOGOUT_AUTH_USER = 'LOGOUT_AUTH_USER'
 
 export const SET_ERROR = 'SET_ERROR'
 export const SET_MESSAGE = 'SET_MESSAGE'
+export const CLEAR_NOTIFICATION = 'CLEAR_NOTIFICATION'
