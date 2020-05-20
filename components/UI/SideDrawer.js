@@ -39,7 +39,7 @@ const AuthLink = ({ token, setIsMenuOpen }) => {
 const LinkList = ({ isAuth, isAdmin }) => {
     let links = null
 
-    if (isAuth && isAdmin) {
+    if (isAuth && isAdmin === 'true') {
         links = (
             <>
                 <li>
@@ -56,7 +56,7 @@ const LinkList = ({ isAuth, isAdmin }) => {
         )
     }
 
-    if (isAuth && !isAdmin) {
+    if (isAuth && isAdmin !== 'true') {
         links = (
             <>
                 <li>

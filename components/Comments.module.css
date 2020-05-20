@@ -1,0 +1,44 @@
+.CommentsContainer {
+    height: 50%;
+    overflow: auto;
+    font-family: 'Mukta', sans-serif;
+    width: 80%;
+}
+
+.Comment {
+    display: flex;
+    justify-content: space-between;
+    height: 40%;
+}
+
+.Content {
+    width: 60%;
+}
+
+.CommentText,
+.CommentCreated {
+    font-weight: 200;
+}
+
+.CommentCreated {
+    font-size: .6rem;
+}
+
+.CommentControlContainer {
+    width: 30%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.Icon {
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+
+.EditForm {
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
